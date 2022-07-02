@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "269987899782",
+    "project_id": "user-app-labview",
+    "storage_bucket": "user-app-labview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269987899782:android:0946360767bf421e84e407",
+        "android_client_info": {
+          "package_name": "com.sarthak.ni_lab_view_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269987899782-5eb6u8cor77hn5socgjmmoeh5g20oma6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sarthak.ni_lab_view_user",
+            "certificate_hash": "01ee2d42ec83c57dd3eb5c74008a3fe08f8edfc1"
+          }
+        },
+        {
+          "client_id": "269987899782-egvur5j0c17115se2r9830jnoe07t7oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCFQpFU9A0-d4ATpMazNTjEaOx20N70y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269987899782-egvur5j0c17115se2r9830jnoe07t7oe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
