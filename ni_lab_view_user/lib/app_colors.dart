@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class AppColors {
-  //
-  // Basic Primary Color of the App.
   static Color primaryColor = const Color(0xff20346C);
 
   static List<Color> cardsArray = [

@@ -32,7 +32,10 @@ dev_dependencies:
   flutter_native_splash:
   firebase_core: ^1.18.0
   cloud_firestore: ^3.1.18
+  firebase_auth:
   qr_flutter: ^4.0.0
+  http:
+  qr_code_scanner: 
   flutter_windowmanager: ^0.2.0
   smooth_page_indicator: ^1.0.0+2
   shared_preferences: ^2.0.15

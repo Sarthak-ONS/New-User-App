@@ -32,8 +32,8 @@ class FirebaseNotificationApi {
       final id = DateTime.now().millisecondsSinceEpoch ~/ 1000;
       const NotificationDetails notificationDetails = NotificationDetails(
         android: AndroidNotificationDetails(
-          "pushnotificationapp",
-          "pushnotificationappchannel",
+          "default_notification_channel_id",
+          "default_notification_channel_id",
           importance: Importance.max,
           priority: Priority.high,
         ),

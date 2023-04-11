@@ -123,12 +123,12 @@ class _NotificationScreenState extends State<NoticeScreen> {
             const SizedBox(
               height: 20,
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                widget.noticeImage!,
-              ),
-            )
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(8.0),
+            //   child: Image.network(
+            //     widget.noticeImage!,
+            //   ),
+            // )
           ],
         ),
       ),

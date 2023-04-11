@@ -4,7 +4,9 @@ import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 
 class CallBackScanner {
   static callbackOnEnterLab(
-      {required String data, required BuildContext context}) async {
+      {required String data,
+      required BuildContext context,
+      required bool isVerified}) async {
     await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     showModalBottomSheet(
       context: context,

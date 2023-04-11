@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ni_lab_view_user/Services/firebase_auth_api.dart';
 
 class LogoutWidgetClass {
   static openLogoutDialogue(context) {
@@ -23,8 +24,7 @@ class LogoutWidgetClass {
                 ),
                 TextButton(
                   onPressed: () {
-                    // SetSharedPreferencesForIntroScreens()
-                    //     .chaangeIntroRoute(false);
+                    FirebaseAuthApi().signout(context);
                   },
                   child: const Text(
                     'Logout',

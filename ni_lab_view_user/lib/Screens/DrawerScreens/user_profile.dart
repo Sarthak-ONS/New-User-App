@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../Widgets/profile_picture.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../app_colors.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return StreamBuilder<Object>(
       stream: FirebaseFirestore.instance
           .collection('Users')
-          .doc('ccGyAkVkXt9GiBFabDVc')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
           .snapshots(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -57,30 +57,65 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           ),
           body: SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-              child: Stack(
-                //crossAxisAlignment: CrossAxisAlignment.stretch,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  buildNamewidget(snapshot),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildEmailWidget(snapshot),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    snapshot.data['Branch'],
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w200,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    snapshot.data['StudentNo'],
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    snapshot.data['ContactNo'],
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
                     children: [
-                      ProfilePicture(
-                        photoUrl: snapshot.data['photoUrl'],
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      buildNamewidget(snapshot),
-                      buildEmailWidget(snapshot),
+                      const Text('Verification Status : '),
                       Text(
-                        snapshot.data['Batch'],
+                        snapshot.data['isVerifiedFromAdmin'] == true
+                            ? 'Verified'
+                            : 'Waiting for verification',
                         style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 12,
+                          fontSize: 16,
                           fontWeight: FontWeight.w200,
-                          fontStyle: FontStyle.italic,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -97,7 +132,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       snapshot.data['Email'],
       style: const TextStyle(
         color: Colors.black,
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.w300,
       ),
     );
@@ -115,7 +150,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             fontWeight: FontWeight.w400,
           ),
         ),
-        snapshot.data['isNiLabViewMember']
+        snapshot.data['isVerifiedFromAdmin']
             ? const Icon(Icons.verified_sharp)
             : Container()
       ],

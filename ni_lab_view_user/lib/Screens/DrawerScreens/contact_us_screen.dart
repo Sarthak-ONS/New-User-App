@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../Widgets/build_custom_text_field.dart';
 import '../../app_colors.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -139,58 +140,5 @@ class _ContactScreenState extends State<ContactScreen> {
         ),
       ),
     );
-  }
-
-  Container buildTextFormField(
-      {TextEditingController? controller, String? hintText}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      child: TextFormField(
-        scrollPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-        controller: controller,
-        validator: (value) {
-          if (hintText == 'Your Name') {
-            if (value!.isEmpty || value.length <= 5) {
-              return;
-            }
-            return;
-          }
-
-          //
-
-          if (hintText == 'Your Email') {
-            bool isRight = isEmail(value!);
-            print("User Email is $isRight Formaatted");
-            if (!isRight) {
-              return;
-            }
-          }
-          return null;
-        },
-        keyboardType: hintText == "Mobile Number" ? TextInputType.phone : null,
-        decoration: InputDecoration(
-          hintText: hintText!,
-          labelText: hintText,
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.primaryColor),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        ),
-        style: const TextStyle(),
-      ),
-    );
-  }
-
-  bool isEmail(String em) {
-    String p =
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-
-    RegExp regExp = RegExp(p);
-
-    return regExp.hasMatch(em);
   }
 }
